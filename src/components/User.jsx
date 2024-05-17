@@ -5,7 +5,7 @@ import CardData from './CardData'
 const User = () => {
   
   return (
-    <div className='flex flex-col w-40 border border-solid boder-red-500 gap-4 mt-10'>
+    <div className='flex flex-col w-full  gap-4 mt-16 ml-1 border border-solid border-black  items-center'>
       {
         data.map((e,i)=>{
             return <CardData data={e} key={i} />
