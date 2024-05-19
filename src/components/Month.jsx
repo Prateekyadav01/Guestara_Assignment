@@ -13,7 +13,7 @@ const Month = () => {
     const { month, year } = getMonthYear();
 
     return (
-        <div className="container bg-gray-300 border border-solid border-black fixed top-0 left-0 right-0 w-[100vw]">
+        <div className=" w-full bg-gray-300 border border-solid border-black fixed">
             <div className="flex justify-between items-center px-4 py-2">
                 <div>
                     <span className="text-lg font-semibold">{month}</span>
