@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { data } from '../assets/data';
 
-const ShowingDate = ({ day, formattedDate, selector }) => {
+const ShowingDate = ({ day, formattedDate, selector, dayToday }) => {
   const [click, setClick] = useState([]);
   const [colors, setColors] = useState({});
+
+  console.log(dayToday);
+  
+
+  const currentDate = new Date();
+  const newDate = currentDate.getDate(); // Get the day of the month
+  console.log(newDate);
 
   const getDayOfWeek = (dateString) => {
     const date = new Date(dateString);
@@ -43,8 +50,8 @@ const ShowingDate = ({ day, formattedDate, selector }) => {
   };
 
   return (
-    <div className={`flex flex-col border-2 ${selector ? 'bg-white text-black' : 'bg-black text-white'}`}>
-      <div className='border p-2 flex gap-1'>
+    <div className={`flex flex-col border-2 overflow-auto overflow-x-auto ${selector ? 'bg-white text-black' : 'bg-black text-white'}`}>
+      <div className={`border p-2 flex gap-1 ${day===newDate ? "bg-red-300 text-black" : ""}`}>
         <div>{day}</div>
         <div>{dayOfWeek}</div>
       </div>
@@ -52,7 +59,7 @@ const ShowingDate = ({ day, formattedDate, selector }) => {
         <div
           key={i}
           onClick={() => handleEvent(i)}
-          className='w-[100px] h-[50px] border border-solid border-black'
+          className={`w-[100px] h-[50px] border border-solid border-black`} // Compare day with newDate
           style={{ backgroundColor: click.includes(i) ? colors[i] : 'transparent' }}
         >
           {click.includes(i) ? (

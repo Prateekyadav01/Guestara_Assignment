@@ -13,7 +13,7 @@ const Footer = () => {
     
 
     return (
-        <div className='flex justify-around bg-gray-300 h-10 items-center fixed bottom-0 w-full p-2'>
+        <div className='flex justify-around bg-gray-300 h-10 items-center sticky bottom-0 w-full p-2'>
             <div className='flex items-center bg-gray-300 rounded-md gap-6  p-2'>
                 <span>📱</span>
                 <span>☎️</span>
