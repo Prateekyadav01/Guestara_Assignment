@@ -1,6 +1,7 @@
 // src/Calendar.js
 import React from 'react';
 import ShowingDate from './ShowingDate';
+
 import { useSelector } from 'react-redux';
 import { DndContext } from '@dnd-kit/core';
 import { SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy } from '@dnd-kit/sortable';
@@ -31,6 +32,11 @@ const Calendar = ({ dateData }) => {
       });
     }
   };
+  const arr=[];
+  const handleTheLocalStorage = (event) => {
+    const { id } = event.target;
+    localStorage.setItem('date', id);
+  };
 
   return (
     <DndContext onDragEnd={handleDragEnd}>
@@ -46,6 +52,7 @@ const Calendar = ({ dateData }) => {
                 formattedDate={formattedDate}
                 selector={selector}
                 dayToday={dayToday}
+                onClick={handleTheLocalStorage}
               />
             );
           })}
